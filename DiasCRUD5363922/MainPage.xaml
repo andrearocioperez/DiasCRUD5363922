@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DiasCRUD5363922.MainPage"
+             BackgroundColor="Black">
+
+    <ScrollView>
+        <FlexLayout Direction="Column">
+            <VerticalStackLayout
+          Padding="25" FlexLayout.Basis="Auto" BackgroundColor="DarkGray">
+                <Image 
+                    Source=" tiempo.jpg"
+                    HorizontalOptions="Fill"
+                    WidthRequest="90"/>
+
+                <Label Text="Ingrese el número de días:"
+               FontSize="18"
+               VerticalOptions="Center" 
+               FontFamily="Cambria"
+               TextColor="Black"
+               HorizontalOptions="Center"/>
+
+                <Label/>
+
+                <Entry x:Name="DiasEntry"
+               Placeholder="Número de días"
+               PlaceholderColor="Black"
+               Keyboard="Numeric"
+               VerticalOptions="Center"
+               TextColor="Black"
+               HorizontalOptions="Center"/>
+
+                <Label/>
+
+                <Button x:Name="resultButton"
+                        Text="MOSTRAR RESULTADO"
+                        Clicked="resultButton_Clicked"
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        BackgroundColor="DarkMagenta"
+                        BorderColor="Black"
+                        BorderWidth="3"
+                         HorizontalOptions="Center"/>
+                <Label/>
+
+                <Label x:Name="labelresult"
+                      FontSize="18"
+                      VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        TextColor="Black"
+                       FontAttributes="Bold"/>
+
+            </VerticalStackLayout>
+            <ListView x:Name="listview" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="Listview_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <VerticalStackLayout Padding="5">
+                                <Label Text="{Binding Dias}" FontSize="17" FontAttributes="Italic"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="2" Text="{Binding ReSegundos}" FontAttributes="Bold"/>
+                                </Grid>
+                            </VerticalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </FlexLayout>
+
+    </ScrollView>
+
+</ContentPage>
